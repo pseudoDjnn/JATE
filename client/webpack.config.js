@@ -23,11 +23,11 @@ module.exports = () => {
         title: "Text Editor",
       }),
       new InjectManifest({
-        swSrc: "./src/src-sw.js",
+        swSrc: "./src-sw.js",
         swDest: "service-worker.js",
       }),
       new WebpackPwaManifest({
-        name: "Text Editor",
+        name: "J.A.T.E.",
         short_name: "Text Editor",
         description: "Write down code and notes.",
         background_color: "#1e1e1e",
@@ -36,7 +36,7 @@ module.exports = () => {
         publicPath: "/",
         icons: [
           {
-            src: path.resolve("assets/images/logo.png"),
+            src: path.resolve("src/images/logo.png"),
             sizes: [96, 128, 192, 256, 384, 512],
             destination: path.join("assets", "icons"),
           },
@@ -45,7 +45,22 @@ module.exports = () => {
     ],
 
     module: {
-      rules: [],
+      rules: [
+        {
+          test: /\.css$/i,
+          use: ["style-loader", "css-loader"],
+        },
+        {
+          test: /\.m?js$/,
+          exclude: /(node_,modules|bower_components)/,
+          use: {
+            loader: "babel-loader",
+            options: {
+              presets: ["@babel/preset-env"],
+            },
+          },
+        },
+      ],
     },
   };
 };
