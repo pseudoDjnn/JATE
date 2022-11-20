@@ -24,14 +24,15 @@ module.exports = () => {
       }),
       new InjectManifest({
         swSrc: "./src-sw.js",
-        swDest: "service-worker.js",
+        swDest: "src-sw.js",
       }),
       new WebpackPwaManifest({
-        name: "J.A.T.E.",
-        short_name: "Text Editor",
+        fingerprints: false,
+        name: "Just Another Text Editor",
+        short_name: "JATE",
         description: "Write down code and notes.",
-        background_color: "#1e1e1e",
-        theme_color: "#1e1e1e",
+        background_color: "#225ca3",
+        theme_color: "#225ca3",
         start_url: "/",
         publicPath: "/",
         icons: [
@@ -41,7 +42,6 @@ module.exports = () => {
             destination: path.join("assets", "icons"),
           },
         ],
-        fingerprints: true,
       }),
     ],
 
@@ -53,11 +53,15 @@ module.exports = () => {
         },
         {
           test: /\.m?js$/,
-          exclude: /(node_,modules|bower_components)/,
+          exclude: /node_modules/,
           use: {
             loader: "babel-loader",
             options: {
               presets: ["@babel/preset-env"],
+              plugins: [
+                "@babel/plugin-proposal-object-rest-spread",
+                "@babel/transform-runtime",
+              ],
             },
           },
         },
