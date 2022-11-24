@@ -2,6 +2,8 @@
 
 ![license](https://img.shields.io/badge/license-MIT-yellowgreen.svg)
 
+- [Deployment](https://young-plateau-94586.herokuapp.com/)
+
 ## Description
 
 - What is the purpose of this repository?<br/>
@@ -16,6 +18,9 @@ A downloadable IndexedDB based application allowing the user to write code eithe
 - [Contributors](#contributors)
 - [Questions](#questions)
 - [License](#license)
+
+![JATE](https://user-images.githubusercontent.com/105378214/203689517-c2a2882f-0db8-4b4d-9256-098a9ed9b8e7.png)
+
 
   ## Installation (Dependencies)
 
